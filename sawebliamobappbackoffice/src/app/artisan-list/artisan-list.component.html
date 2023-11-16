@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="back-to-missions-link" (click)="onBackToMissions()">&lt; Back to Missions</div>
+  <br>
+<br>
+<br>
+    <div class="row">
+      <div *ngFor="let artisan of artisans" class="col-md-6 col-lg-4 mb-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ artisan?.nomComplet }}</h5>
+            <p class="card-text">Email: {{ artisan?.email }}</p>
+            <p class="card-text">Phone: {{ artisan?.tel }}</p>
+            <p class="card-text">Address: {{ artisan?.adresse }}</p>
+            <p class="card-text">Metiers:</p>
+            <ul class="list-unstyled">
+              <li *ngFor="let metier of artisan?.metiers">{{ metier }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

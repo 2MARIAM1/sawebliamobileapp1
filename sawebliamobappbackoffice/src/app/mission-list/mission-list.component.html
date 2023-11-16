@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Add Bootstrap CSS link -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" style="color:white;">Mission Management App</a>
+    </nav>
+
+    <!-- Container to display missions -->
+    <div class="container mt-4">
+        <div *ngIf="!showArtisanList">
+        <div class="row">
+            <div *ngFor="let mission of missions" class="col-md-6 col-lg-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <!-- Display mission-related information here -->
+                        <h5 class="card-title">{{ mission?.client?.nomComplet }}</h5>
+                        <p class="card-text">Status: {{ mission?.statutMission }}</p>
+                        
+                        <p class="card-text">Type: {{ mission?.typeMission }}</p>
+                        <p class="card-text">Client Phone: {{ mission?.client?.tel }}</p>
+                        <p class="card-text">Skills:</p>
+                        <ul class="list-unstyled">
+                            <li *ngFor="let skill of mission?.metiers">{{ skill }}</li>
+                        </ul>
+<!-- Existing mission card content -->
+<button class="btn btn-primary" (click)="showArtisans()">Affecter</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <app-artisan-list *ngIf="showArtisanList" (backToMissions)="hideArtisans()">
+            
+        </app-artisan-list>
+
+    </div>
+
+    
+
+    <!-- Add Bootstrap JS and jQuery scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
